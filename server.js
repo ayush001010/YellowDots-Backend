@@ -26,7 +26,7 @@ app.use('/api/works', workRoutes);
 
 // Health check
 app.get('/', (req, res) => {
-  res.send('❤️❤️YellowDots-Backent❤️❤️');
+  res.send('❤️❤️YellowDots-Backend❤️❤️');
 });
 
 // 404 handler
