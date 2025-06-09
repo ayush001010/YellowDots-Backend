@@ -26,7 +26,7 @@ app.use('/api/works', workRoutes);
 
 // Health check
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('❤️❤️YellowDots-Backent❤️❤️');
 });
 
 // 404 handler
