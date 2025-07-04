@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import connectDB from './config/db.js';
 import workRoutes from './routes/workRoutes.js';
+import featuredRoutes from './routes/featured.js';
 
 // Initialize environment variables
 dotenv.config();
@@ -23,6 +24,7 @@ app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // API routes
 app.use('/api/works', workRoutes);
+app.use("/api/featured", featuredRoutes);
 
 // Health check
 app.get('/', (req, res) => {
