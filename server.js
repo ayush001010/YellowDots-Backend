@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -17,23 +16,24 @@ app.use(express.json());
 const __dirname = path.resolve();
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-// ✅ Register API routes
+// ——— ROUTES MUST BE REGISTERED HERE ———
+console.log('🛠️  Registering /api/featured');
 app.use('/api/works', workRoutes);
 app.use('/api/featured', featuredRoutes);
 
-// ✅ Health check
+// health check
 app.get('/', (req, res) => {
   res.send('❤️ YellowDots Backend Running');
 });
 
-// ❗ 404 handler
+// 404 handler
 app.use((req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
   res.status(404);
   next(error);
 });
 
-// ❗ Error handler
+// error handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode).json({
@@ -43,6 +43,6 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () =>
+  console.log(`Server running in ${process.env.NODE_ENV} on port ${PORT}`)
+);

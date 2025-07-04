@@ -1,4 +1,3 @@
-// models/Featured.js
 import mongoose from 'mongoose';
 
 const featuredSchema = new mongoose.Schema(
